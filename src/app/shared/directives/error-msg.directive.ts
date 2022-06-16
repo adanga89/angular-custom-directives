@@ -7,6 +7,7 @@ export class ErrorMsgDirective implements OnInit {
 
   htmlElement:  ElementRef<HTMLElement>;
   @Input() color: string = 'red';
+  @Input() mensaje: string = 'Este campo es requerido';
 
   constructor( private el: ElementRef<HTMLElement>) {
     console.log('Constructor Directive')
@@ -18,10 +19,15 @@ export class ErrorMsgDirective implements OnInit {
    ngOnInit(): void {
     console.log('OnInit Directive');
     this.setColor();
+    this.setMensaje();
    }
 
    setColor():void{
     this.htmlElement.nativeElement.style.color = this.color;
+   }
+
+   setMensaje(): void {
+    this.htmlElement.nativeElement.innerHTML = this.mensaje;
    }
 
 }
