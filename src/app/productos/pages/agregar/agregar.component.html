@@ -18,9 +18,9 @@
         <div class="col-auto">
             <span class="form-text" 
                 error-msg
-                color="red"
-                mensaje="Debe Ingresar el nombre"
-                *ngIf="isValid()">
+                [color]="color"
+                [mensaje]="name"
+                [valido]="isValid()">
             </span>
         </div>       
 
@@ -28,8 +28,14 @@
 
     <div class="row mt-3">
         <div class="col">
-            <button class="btn btn-success">
+            <button class="btn btn-success" (click)="cambiarNombre()">
                 Guardar
+            </button>
+        </div>
+        &nbsp;
+        <div class="col">
+            <button class="btn btn-success" (click)="cambiarColor()">
+                Cambiar color
             </button>
         </div>
     </div>
